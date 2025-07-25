@@ -35,7 +35,7 @@ docker run --rm -v "${PWD}\input:/app/input" -v "${PWD}\output:/app/output" --ne
     { "level": "H1", "text": "First heading",  "page": 1 },
     { "level": "H2", "text": "Sub‑heading",    "page": 2 },
     { "level": "H3", "text": "Detail section", "page": 3 }
-    // …
+    
   ]
 }
 ```
