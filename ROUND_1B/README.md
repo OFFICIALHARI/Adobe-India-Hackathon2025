@@ -31,7 +31,7 @@ docker run --rm -v "C:\path\to\your\project:/app" adobe_persona_docai
 - All code is in `main.py` and `utils/pdf_parser.py`
 - `approach_explanation.md` explains the full methodology
 
-## No Errors!
+## Technical
 - All dependencies are handled
 - No internet is required at runtime
 - CPU-only, fast (<60s for 3–5 PDFs), model size ≤1GB
