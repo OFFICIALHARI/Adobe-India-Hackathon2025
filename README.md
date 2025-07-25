@@ -1,152 +1,82 @@
-# 🧩 Project Synapse — Adobe Hackathon 2025  
-**Rethink Reading. Rediscover Knowledge.**  
-*An offline-first system to extract and connect insights across documents.*
+# 🧩 Project Synapse — Adobe Hackathon 2025
+
+**_Rethink Reading. Rediscover Knowledge._**  
+**Offline-first document intelligence system for Adobe’s "Connecting the Dots" Hackathon**
 
 <p align="center">
-  <img src="https://cdn.adobe.io/static/hackathon-logo.png" alt="Adobe Hackathon" height="110"/>
+  <img src="https://blog.logomaster.ai/hs-fs/hubfs/adobe-logo-2017.jpg?width=662&height=447&name=adobe-logo-2017.jpg" alt="Adobe Logo" height="80"/>
 </p>
 
-## 🌟 Overview
-Project Synapse delivers intelligent document processing with:
-- **Round 1A:** [Structured Outline Extractor](#-round-1a-structured-outline-extractor)
-- **Round 1B:** [Persona-Aware Insight Engine](#-round-1b-persona-aware-insight-engine)
+---
 
-## 📦 Components
-| Component | Description | README |
-|-----------|-------------|--------|
-| Outline Extractor | Extracts hierarchical document structure | [README](/src/README_OutlineExtractor.md) |
-| Insight Engine | Persona-aware cross-document analysis | [README](/src/README_InsightEngine.md) |
+## 📂 Input & Output
 
-## 🛠️ Quick Start
-```bash
-docker build --platform linux/amd64 -t synapse:latest .
-docker run --rm -v $(pwd)/input:/app/input -v $(pwd)/output:/app/output --network none synapse:latest
-📂 Directory Structure
-.
-├── Dockerfile
-├── input/          # PDF inputs
-├── output/         # JSON outputs
-├── src/            # Component code
-└── models/         # Quantized models
-📜 License
+Place your `.pdf` files inside the `./input/` directory.  
+Output files will appear in the `./output/` directory.
+
+Round 1A → outline_<filename>.json
+Round 1B → insights_<persona>.json
+
 
 ---
 
-### 2. **Outline Extractor README.md** (`/src/README_OutlineExtractor.md`)
+## 🔧 Components
 
-# 📑 Structured Outline Extractor
-*Fast, offline extraction of document hierarchies*
+### 🏁 Round 1A: Structured Outline Extractor
 
-## 🏆 Features
-- ✅ 50-page PDFs in ≤10sec
-- ✅ Outputs JSON with:
-  - Title
-  - Heading levels (H1-H3)
-  - Page numbers
-- ✅ Multilingual support
+Extracts structured outlines from raw PDFs, including:
+- Document title
+- Headings: H1, H2, H3
+- Page references
 
-## 🚀 Usage
-```python
-from extract_outline import process_pdf
-
-outline = process_pdf("input.pdf")
-print(outline.to_json())
-📊 Sample Output
-{
-  "title": "AI Research Paper",
-  "outline": [
-    {"level": "H1", "text": "Introduction", "page": 1},
-    {"level": "H2", "text": "Methods", "page": 3}
-  ]
-}
-⚙️ Technical Details
-Aspect	Implementation
-PDF Parsing	PyMuPDF (font + spatial analysis)
-Heading Detection	Hybrid heuristic model (93% accuracy)
-Size	180MB (quantized BERT)
+**Key Features**
+- ≤ 10 seconds for 50-page PDFs
+- Multilingual support (English / Japanese / Chinese)
+- Clean JSON output for downstream applications
 
 ---
 
-### 3. **Insight Engine README.md** (`/src/README_InsightEngine.md`)
-```markdown
-# 🔍 Persona-Aware Insight Engine
-*Contextual analysis across document collections*
+### 🎯 Round 1B: Persona-Aware Insight Engine
 
-## 🎯 Use Cases
-- Investment analysts comparing reports
-- Researchers synthesizing papers
-- Students compiling study materials
+Analyzes multiple documents to extract relevant sections aligned with a given persona’s objective.
 
-## 📥 Inputs
-```json
-{
-  "persona": "Biotech Investor",
-  "task": "Compare clinical trial results",
-  "documents": ["study1.pdf", "study2.pdf"]
-}
-📤 Output Structure
-{
-  "ranked_insights": [
-    {
-      "document": "study1.pdf",
-      "page": 12,
-      "section": "Results",
-      "relevance": 0.92,
-      "summary": "Trial showed 73% efficacy..."
-    }
-  ]
-}
-🧠 AI Models
-Model	Purpose	Size
-MiniLM	Semantic matching	850MB
-Custom Classifier	Relevance ranking	110MB
-⏱️ Performance
-3 documents (avg. 30 pages each): 47sec on x86 CPU
+**Key Features**
+- Context-aware ranking and scoring
+- Concise, readable summaries
+- Supports cross-document analysis
 
----
+📖 See Round 1B source code in `/src/round_1b/` for implementation details.
 
-### 4. **Development README.md** (`/DEVELOPMENT.md`)
-```markdown
-# 🛠️ Development Guide
 
-## 📌 Prerequisites
-- Python 3.10+
-- Docker (AMD64)
-- `pip install -r requirements.txt`
+## 🏆 Technical Highlights
 
-## 🔧 Testing
-```bash
-pytest tests/
-🧩 Component Architecture
-graph TD
-    A[PDF Input] --> B(Outline Extractor)
-    A --> C(Insight Engine)
-    B --> D[JSON Structure]
-    C --> E[Ranked Insights]
-🧪 Benchmarking
-Test Case	Time	Memory
-50-page PDF	8.2sec	195MB
-3-doc Analysis	52sec	890MB
-🤝 Contribution
-Fork the repository
+### Round 1A
+- **Processing Time**: ≤ 10 seconds (50-page PDF)
+- **Memory Usage**: ≤ 200MB RAM
+- **Model Size**: 180MB
+- **Supported Languages**: English, Japanese, Chinese
+- **Key Libraries**: PyMuPDF, spaCy
 
-Create feature branch (git checkout -b feature/foo)
+### Round 1B
+- **Processing Time**: ≤ 60 seconds (3–5 documents)
+- **Memory Usage**: ≤ 1GB RAM
+- **Model Size**: 850MB
+- **Supported Languages**: English
+- **Key Libraries**: Transformers, scikit-learn
 
-Submit PR with tests
----
 
-### Key Features of This Structure:
-1. **Separation of Concerns**: Each component has dedicated documentation
-2. **Consistent Formatting**:
-   - Tables for technical specifications
-   - Code blocks for examples
-   - Clear emoji-based section headers
-3. **Progressive Disclosure**:
-   - Quick start in main README
-   - Detailed specs in component READMEs
-4. **Visual Navigation**:
-   - Directory trees
-   - Mermaid diagram (in development guide)
-5. **Performance Transparency**: Benchmarks in each relevant section
+## 👥 Team Synapse
 
-Would you like me to add any specific technical deep-dives or API documentation to any of these?
+**Role Areas**
+- Machine Learning Engineering  
+- Document AI & NLP  
+- Research Engineering  
+
+**📫 Contact**  
+- harikrishnan777h@gmail.com
+
+**📄 License**  
+- Apache 2.0
+
+> *"We don’t just process documents — we connect knowledge across them."*  
+> — The Synapse Team
