@@ -1,8 +1,14 @@
-# Persona-Driven Document Intelligence Solution
+# 🧠 Persona-Driven Document Intelligence Solution
 
-## Setup & Usage
+A lightweight, containerized AI solution for extracting insights from PDF documents based on a **user persona** and a **job-to-be-done**.
 
-### 1. Build Docker Image
+Designed for fast execution, no internet dependency, and strict adherence to challenge output formats.
+
+---
+
+## 🚀 Setup & Usage
+
+### 1. 🛠️ Build the Docker Image
 ```bash
 docker build -t adobe_persona_docai .
 ```
