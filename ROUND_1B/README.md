@@ -10,7 +10,7 @@ Designed for fast execution, no internet dependency, and strict adherence to cha
 
 ### 1. 🛠️ Build the Docker Image
 ```bash
-docker build -t adobe_persona_docai .
+docker build -t round_1b_image .
 ```
 
 ### 2. Prepare Input
@@ -19,15 +19,15 @@ docker build -t adobe_persona_docai .
 
 ### 3. Run the Solution
 ```bash
-docker run --rm -v "$PWD:/app" adobe_persona_docai
+docker run --rm -v "$PWD:/app" round_1b_image
 ```
 - On Windows (PowerShell):
 ```powershell
-docker run --rm -v "${PWD}:/app" adobe_persona_docai
+docker run round_1b_image
 ```
 - If you have issues with `${PWD}`, use the full path to your folder:
 ```powershell
-docker run --rm -v "C:\path\to\your\project:/app" adobe_persona_docai
+docker run --rm -v "C:\path\to\your\project:/app" round_1b_image
 ```
 
 ### 4. Output

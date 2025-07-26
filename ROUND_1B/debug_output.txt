@@ -1,0 +1,12 @@
+Page 1 Body Font Size: 24.0
+  Span: 'Sample PDF for Demo Purposes', Size: 24.0, Bold: False
+  First block on page treated as heading: 'Sample PDF for Demo Purposes'
+  New Section Title Set: 'Sample PDF for Demo Purposes'
+  Span: 'This is a simple PDF document created for testing or demo purposes.', Size: 14.0, Bold: False
+  Span: 'Generated using Python and ReportLab.', Size: 12.0, Bold: False
+  Saved final section on page: 'Sample PDF for Demo Purposes' with content snippet: 'Sample PDF for Demo Purposes...')
+Extracted Sections (Final):
+  Title: Sample PDF for Demo Purposes, Page: 1, Text Snippet: Sample PDF for Demo Purposes
+This is a simple PDF document created for testing or demo purposes.
+Gen...
+Processing PDFs:   0%|          | 0/1 [00:00<?, ?it/s]Processing PDFs: 100%|##########| 1/1 [00:00<00:00,  1.93it/s]Processing PDFs: 100%|##########| 1/1 [00:00<00:00,  1.93it/s]

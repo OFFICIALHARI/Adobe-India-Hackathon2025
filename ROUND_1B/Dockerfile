@@ -2,7 +2,8 @@ FROM python:3.10-slim
 
 WORKDIR /app
 
-RUN apt-get update && apt-get install -y gcc libcrypt1 && apt-get clean && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y gcc build-essential libopenjp2-7 libjpeg-dev libfreetype6-dev && apt-get clean && rm -rf /var/lib/apt/lists/*
+RUN ln -s /lib/x86_64-linux-gnu/libcrypt.so.1 /usr/lib/libcrypt.so.2
 
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
