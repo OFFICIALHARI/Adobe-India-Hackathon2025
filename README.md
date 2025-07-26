@@ -1,4 +1,4 @@
-# 🧩 Project Synapse — Adobe Hackathon 2025
+# 🧩 Project Xpert Mavericks — Adobe Hackathon 2025
 
 **_Rethink Reading. Rediscover Knowledge._**  
 **Offline-first document intelligence system for Adobe’s "Connecting the Dots" Hackathon**
@@ -65,7 +65,7 @@ Analyzes multiple documents to extract relevant sections aligned with a given pe
 - **Key Libraries**: Transformers, scikit-learn
 
 
-## 👥 Team Synapse
+## 👥 Team Xpert Mavericks
 
 **Role Areas**
 - Machine Learning Engineering  
@@ -79,4 +79,4 @@ Analyzes multiple documents to extract relevant sections aligned with a given pe
 - Apache 2.0
 
 > *"We don’t just process documents — we connect knowledge across them."*  
-> — The Synapse Team
+> — The Xpert Mavericks Team
